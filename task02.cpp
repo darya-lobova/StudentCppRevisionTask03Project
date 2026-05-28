@@ -48,5 +48,21 @@
 */
 
 string task02(int a, int b, int n) {
-	return "error";
+
+	if (a < 0 || b < 0 || b > 99 || n <= 0) {
+		return "error";
+	}
+    int price_in_coins = a * 100 + b;
+
+   
+    if (price_in_coins <= 0) {
+        return "error";
+    }
+
+    long long total_coins = (long long)price_in_coins * n;
+
+    long long total_rubles = total_coins / 100;
+    long long remaining_coins = total_coins % 100;
+
+    return std::to_string(total_rubles) + " " + std::to_string(remaining_coins);
 }
